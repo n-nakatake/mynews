@@ -21,31 +21,51 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2">氏名</label>
+                        <label class="col-md-2">名前</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                            @if ($errors->has('name'))
+                        　　　　<p style="color: red;">{{$errors->first('name')}}</p>
+                            @endif                        
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">性別</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="gender" value="{{ old('gender') }}">
+                        <div class="col-md-4">
+                            <select  class="form-control" name="gender">
+                                <option value="">選択してください</option>
+                                <option value="1" {{ old('gender') === '1' ? 'selected' : ''}}>男性</option>
+                                <option value="2" {{ old('gender') === '2' ? 'selected' : ''}}>女性</option>
+                                <option value="3" {{ old('gender') === '3' ? 'selected' : ''}}>回答しない</option>
+                            </select>
+                            @if ($errors->has('gender'))
+                        　　　　<p>{{$errors->first('gender')}}</p>
+                            @endif                        
+                      
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">趣味</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="hobby" value="{{ old('hobby') }}">
+                            @if ($errors->has('hobby'))
+                        　　　　<p>{{$errors->first('hobby')}}</p>
+                            @endif    
                         </div>
                     </div>                    
                     <div class="form-group row">
                         <label class="col-md-2">自己紹介</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="introduction" rows="20">{{ old('introduction') }}</textarea>
+                            <textarea class="form-control" name="introduction" rows="10">{{ old('introduction') }}</textarea>
+                            @if ($errors->has('introduction'))
+                        　　　　<p>{{$errors->first('introduction')}}</p>
+                            @endif   
                         </div>
                     </div>
                     @csrf
-                    <input type="submit" class="btn btn-primary" value="更新">
+                    <label class="col-md-5"></label>
+                    <input type="submit" class="col-md-4 btn btn-primary"  value="更新">
+                    <label class="col-md-2"></label>
                 </form>
             </div>
         </div>
