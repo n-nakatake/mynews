@@ -63,9 +63,11 @@
                         </div>
                     </div>
                     @csrf
-                    <label class="col-md-5"></label>
-                    <input type="submit" class="col-md-4 btn btn-primary"  value="更新">
-                    <label class="col-md-2"></label>
+                    <div class="col-md-3 mx-auto">
+                        <button class="btn btn-primary col-md-12" type="submit">更新</button>
+                    </div>
+                    <!--<input type="submit" class="col-md-4 btn btn-primary"  value="更新">-->
+
                 </form>
             </div>
         </div>
