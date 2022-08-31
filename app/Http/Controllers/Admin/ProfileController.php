@@ -68,13 +68,14 @@ class ProfileController extends Controller
         
         // 該当するデータを上書きして保存する
         $profile->fill($profile_form)->save();
-        return redirect('admin/profile');        
-                
+
+        // プロフィール履歴テーブルにデータを保存
         $profilehistory = new ProfileHistory();
         $profilehistory->profile_id = $profile->id;
         $profilehistory->edited_at = Carbon::now();
         $profilehistory->save();        
-        // return redirect('admin/profile/edit');
+
+        return redirect('admin/profile/edit?id='. $request->id);
     }
     
   public function delete(Request $request)
