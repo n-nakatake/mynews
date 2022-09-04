@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
@@ -27,11 +27,11 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('profile/create', 'Admin\ProfileController@create')->middleware('auth');
     Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
     Route::post('profile/edit', 'Admin\ProfileController@update')->middleware('auth');
-    
+   
 });
 
-
-
+Route::get('/', 'NewsController@index');
+Route::get('profile', 'ProfileController@index');
 
 
 
