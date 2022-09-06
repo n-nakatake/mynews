@@ -14,11 +14,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <p class="gender mx-auto">{{ Str::limit($headline->gender, 70) }}</p>
-                            <!--value="1" 男性-->
-                            <!--value="2" 女性-->
-                            <!--value="3" 回答しない-->
+                        <p class="gender mx-auto">
+                        @if ($headline->gender === '1')
+                            男性
+                        @elseif ($headline->gender === '2')
+                            女性
+                        @else
+                            回答しない
+                        @endif
+                        </p>
                         </div>
                         <div class="col-md-10">
                             <p class="hobby mx-auto">{{ Str::limit($headline->hobby, 650) }}</p>
@@ -43,17 +47,24 @@
                                 <div class="name">
                                     {{ Str::limit($post->name, 150) }}
                                 </div>
-                                <div class="gender mt-3">
-                                    {{ Str::limit($post->gender, 150) }}
-                                </div>
-                                <div class="hobby mt-3">
-                                    {{ Str::limit($post->hobby, 150) }}
-                                </div>                            
-                                <div class="introduction mt-3">
-                                    {{ Str::limit($post->introduction, 150) }}
-                                </div>         
-                            </div>
+                            </div>   
                         </div>
+                        <p class="gender mx-auto">
+                                @if ($headline->gender === '1')
+                                    男性
+                                @elseif ($headline->gender === '2')
+                                    女性
+                                @else
+                                    回答しない
+                                @endif
+                        </p>
+      
+                        <div class="hobby mt-3">
+                            {{ Str::limit($post->hobby, 150) }}
+                        </div>                            
+                        <div class="introduction mt-3">
+                            {{ Str::limit($post->introduction, 150) }}
+                        </div>         
                     </div>
                     <hr color="#c0c0c0">
                 @endforeach
