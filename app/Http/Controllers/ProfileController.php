@@ -9,16 +9,16 @@ class ProfileController extends Controller
 {
     public function index(Request $request)
     {
-        $posts = Profile::all()->sortByDesc('updated_at');
+        $profiles = Profile::all()->sortByDesc('updated_at');
 
-        if (count($posts) > 0) {
-            $headline = $posts->shift();
+        if (count($profiles) > 0) {
+            $headline = $profiles->shift();
         } else {
             $headline = null;
         }
 
         // rofile/index.blade.php ファイルを渡している
-        // また View テンプレートに headline、 posts、という変数を渡している
-        return view('profile.index', ['headline' => $headline, 'posts' => $posts]);
+        // また View テンプレートに headline、 profiles、という変数を渡している
+        return view('profile.index', ['headline' => $headline, 'profiles' => $profiles]);
     }
 }

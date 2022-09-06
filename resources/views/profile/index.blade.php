@@ -36,16 +36,16 @@
         @endif
         <hr color="#c0c0c0">
         <div class="row">
-            <div class="posts col-md-8 mx-auto mt-3">
-                @foreach($posts as $post)
-                    <div class="post">
+            <div class="profiles col-md-8 mx-auto mt-3">
+                @foreach($profiles as $profile)
+                    <div class="profile">
                         <div class="row">
                             <div class="text col-md-6">
                                 <div class="date">
-                                    {{ $post->updated_at->format('Y年m月d日') }}
+                                    {{ $profile->updated_at->format('Y年m月d日') }}
                                 </div>
                                 <div class="name">
-                                    {{ Str::limit($post->name, 150) }}
+                                    {{ Str::limit($profile->name, 150) }}
                                 </div>
                             </div>   
                         </div>
@@ -60,10 +60,10 @@
                         </p>
       
                         <div class="hobby mt-3">
-                            {{ Str::limit($post->hobby, 150) }}
+                            {{ Str::limit($profile->hobby, 150) }}
                         </div>                            
                         <div class="introduction mt-3">
-                            {{ Str::limit($post->introduction, 150) }}
+                            {{ Str::limit($profile->introduction, 150) }}
                         </div>         
                     </div>
                     <hr color="#c0c0c0">
