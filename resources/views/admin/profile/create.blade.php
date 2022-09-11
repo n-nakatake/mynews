@@ -39,8 +39,17 @@
                                 <option value="3" {{ old('gender') === '3' ? 'selected' : ''}}>回答しない</option>
                             </select>
                             @if ($errors->has('gender'))
-                        　　　　<p>{{$errors->first('gender')}}</p>
+                        　　　　<span class="invalid-feedback">
+                            　　<strong>{{$errors->first('gender')}}</strong>
+                        　　　　</span>
                             @endif                        
+
+                            <!--@if ($errors->has('email'))-->
+                            <!--    <span class="invalid-feedback">-->
+                            <!--        <strong>{{ $errors->first('email') }}</strong>-->
+                            <!--    </span>-->
+                            <!--@endif-->
+
                       
                         </div>
                     </div>

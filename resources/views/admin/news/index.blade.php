@@ -11,11 +11,11 @@
                 <a href="{{ action('Admin\NewsController@add') }}" role="button" class="btn btn-primary">新規作成</a>
             </div>
             <div class="col-md-8">
-                <form action="{{ action('Admin\NewsController@index') }}" method="get">
+                <form action="{{ action('Admin\NewsController@search') }}" method="get">
                     <div class="form-group row">
                         <label class="col-md-2">タイトル</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
+                            <input type="text" class="form-control" name="word" value="{{ isset($word) ? $word:'' }}">
                         </div>
                         <div class="col-md-2">
                             @csrf

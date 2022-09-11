@@ -52,6 +52,18 @@ class NewsController extends Controller
       return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
 
+  public function search(Request $request)
+  {
+      $word = $request->word;
+      if ($word != '') {
+          $posts = News::where('title', 'like', "%$word%")->get();          
+          
+      } else {
+          $posts = News::all();
+      }
+      return view('admin.news.index', ['posts' => $posts, 'word' => $word]);
+  }
+  
   public function edit(Request $request)
   {
       // News Modelからデータを取得する
